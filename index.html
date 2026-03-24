@@ -99,30 +99,6 @@
       height: 34px;
     }
 
-    /* ─── X MOTIFF VIEWPORT OVERLAY ─── */
-    .x-motiff-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 198;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 1.4s ease;
-      --mx: 50%;
-      --my: 50%;
-      -webkit-mask-image: radial-gradient(ellipse 72% 78% at var(--mx) var(--my), black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
-      mask-image: radial-gradient(ellipse 72% 78% at var(--mx) var(--my), black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
-    }
-
-    .x-motiff-overlay.visible {
-      opacity: 1;
-    }
-
-    .x-motiff-overlay img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
 
     .nav-links {
       display: flex;
@@ -339,7 +315,6 @@
       width: min(400px, 82vw);
       margin-bottom: 36px;
       opacity: 0;
-      cursor: pointer;
       animation: fadeUp 1s ease forwards 0.5s;
       filter: drop-shadow(0 4px 40px rgba(221, 172, 44, 0.35));
     }
@@ -2755,11 +2730,6 @@
     </div>
   </footer>
 
-  <!-- X MOTIFF OVERLAY -->
-  <div class="x-motiff-overlay" id="xMotiffOverlay">
-    <img src="brand_assets/lwl-x-motiff.svg" alt="">
-  </div>
-
   <!-- VIDEO MODAL -->
   <div class="video-modal" id="videoModal" onclick="closeVideoOnBackdrop(event)">
     <div class="modal-inner">
@@ -2915,36 +2885,6 @@
       update(); // paint correct state if page loads mid-scroll
     })();
 
-    // ─── HERO LOGO — X MOTIFF HOVER ───
-    const heroLogo = document.querySelector('.hero-logo');
-    const xMotiffOverlay = document.getElementById('xMotiffOverlay');
-    if (heroLogo && xMotiffOverlay) {
-      heroLogo.addEventListener('mouseenter', () => {
-        xMotiffOverlay.style.setProperty('--mx', '50%');
-        xMotiffOverlay.style.setProperty('--my', '50%');
-        xMotiffOverlay.classList.add('visible');
-      });
-      heroLogo.addEventListener('mouseleave', () => xMotiffOverlay.classList.remove('visible'));
-    }
-
-    // ─── TICKET CTAs — X MOTIFF HOVER (section-centered) ───
-    const ticketCTAs = document.querySelectorAll(
-      'a[href="#tickets"]:not(nav a), .ticket-btn'
-    );
-    ticketCTAs.forEach(btn => {
-      btn.addEventListener('mouseenter', () => {
-        const section = btn.closest('section') || btn.closest('div[id]');
-        if (section) {
-          const r = section.getBoundingClientRect();
-          const cx = ((r.left + r.right) / 2 / window.innerWidth * 100).toFixed(1) + '%';
-          const cy = (Math.min(Math.max((r.top + r.bottom) / 2, 0), window.innerHeight) / window.innerHeight * 100).toFixed(1) + '%';
-          xMotiffOverlay.style.setProperty('--mx', cx);
-          xMotiffOverlay.style.setProperty('--my', cy);
-        }
-        xMotiffOverlay.classList.add('visible');
-      });
-      btn.addEventListener('mouseleave', () => xMotiffOverlay.classList.remove('visible'));
-    });
   </script>
 </body>
 
