@@ -863,9 +863,11 @@
     }
 
     .speaker-company {
-      font-size: 12px;
-      color: var(--white-40);
-      font-weight: 400;
+      font-size: 13px;
+      color: #DDAC2C;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
     .speakers-more {
@@ -983,6 +985,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .video-thumb-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .video-thumb-overlay {
@@ -2022,6 +2031,7 @@
 
   <!-- NAV -->
   <nav id="navbar">
+    <a href="https://www.livewiremarkets.com" target="_blank" rel="noopener" aria-label="Livewire Markets">
     <svg class="nav-logo" viewBox="0 0 310 56" fill="none" xmlns="http://www.w3.org/2000/svg"
       aria-label="Livewire Live 2026">
       <path fill-rule="evenodd" clip-rule="evenodd"
@@ -2041,6 +2051,7 @@
         d="M16.8625 49.1722C15.8681 49.1422 14.8434 49.023 13.8877 48.7401C13.0366 48.4882 12.2602 48.0739 11.6154 47.4617C10.9667 46.8456 10.5191 46.0894 10.2212 45.2518C9.86392 44.2465 9.76758 43.1021 9.76758 42.0423V10.5037L14.3502 9.68535V41.9295C14.3502 42.4506 14.3811 43.0657 14.5426 43.5653C14.6376 43.8596 14.7831 44.1597 15.0086 44.3779C15.2425 44.6039 15.5343 44.7371 15.8454 44.8237C16.3655 44.9685 16.9093 45.064 17.4431 45.1437L18.1632 45.2514L17.4811 49.1908L16.8625 49.1722Z"
         fill="white" />
     </svg>
+    </a>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#speakers">Speakers</a>
@@ -2303,25 +2314,21 @@
         </div>
       </div>
 
-      <!-- Playlist embed — plays all videos in the playlist inline -->
+      <!-- Hero video -->
       <div class="featured-video reveal">
-        <iframe src="https://www.youtube.com/embed?listType=playlist&list=PLnaSJPapN1XQhlqfx9hyCAjTY_A9y38XZ"
-          title="Livewire Live 2025 — Full Highlights Playlist"
+        <iframe src="https://www.youtube.com/embed/3C2D2s02lOw"
+          title="Livewire Live 2025 — Highlights"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
 
-      <!-- Thumbnail row — clicking opens modal with playlist at that index -->
+      <!-- Thumbnail row -->
       <div class="video-playlist-grid">
-        <div class="video-thumb reveal reveal-delay-1" onclick="openVideo(0)" role="button" tabindex="0"
-          aria-label="Play Market Outlook 2025 Keynote">
-          <div class="video-thumb-bg"
-            style="background: linear-gradient(145deg, #020D30 0%, #0A1E5E 50%, #011040 100%);">
-            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" opacity="0.3">
-
-              <path d="M20 16l18 10-18 10V16z" fill="#DDAC2C" />
-            </svg>
+        <div class="video-thumb reveal reveal-delay-1" onclick="openVideo('kcSdgfvGvPY')" role="button" tabindex="0"
+          aria-label="Play video 1">
+          <div class="video-thumb-bg">
+            <img src="https://img.youtube.com/vi/kcSdgfvGvPY/maxresdefault.jpg" alt="" loading="lazy">
           </div>
           <div class="video-thumb-overlay">
             <div class="play-btn">
@@ -2330,17 +2337,12 @@
               </svg>
             </div>
           </div>
-          <div class="video-thumb-title">Market Outlook 2025 — Keynote</div>
         </div>
 
-        <div class="video-thumb reveal reveal-delay-2" onclick="openVideo(1)" role="button" tabindex="0"
-          aria-label="Play Stock Picks Panel">
-          <div class="video-thumb-bg"
-            style="background: linear-gradient(145deg, #010B28 0%, #071850 50%, #000E38 100%);">
-            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" opacity="0.3">
-
-              <path d="M20 16l18 10-18 10V16z" fill="#DDAC2C" />
-            </svg>
+        <div class="video-thumb reveal reveal-delay-2" onclick="openVideo('ID5indpKcFA')" role="button" tabindex="0"
+          aria-label="Play video 2">
+          <div class="video-thumb-bg">
+            <img src="https://img.youtube.com/vi/ID5indpKcFA/maxresdefault.jpg" alt="" loading="lazy">
           </div>
           <div class="video-thumb-overlay">
             <div class="play-btn">
@@ -2349,17 +2351,12 @@
               </svg>
             </div>
           </div>
-          <div class="video-thumb-title">Stock Picks Panel — Best Ideas</div>
         </div>
 
-        <div class="video-thumb reveal reveal-delay-3" onclick="openVideo(2)" role="button" tabindex="0"
-          aria-label="Play Fireside Chat Global Macro">
-          <div class="video-thumb-bg"
-            style="background: linear-gradient(145deg, #030F35 0%, #0C2060 50%, #011540 100%);">
-            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" opacity="0.3">
-
-              <path d="M20 16l18 10-18 10V16z" fill="#DDAC2C" />
-            </svg>
+        <div class="video-thumb reveal reveal-delay-3" onclick="openVideo('lRZgqQM3O9I')" role="button" tabindex="0"
+          aria-label="Play video 3">
+          <div class="video-thumb-bg">
+            <img src="https://img.youtube.com/vi/lRZgqQM3O9I/maxresdefault.jpg" alt="" loading="lazy">
           </div>
           <div class="video-thumb-overlay">
             <div class="play-btn">
@@ -2368,7 +2365,6 @@
               </svg>
             </div>
           </div>
-          <div class="video-thumb-title">Fireside Chat — Global Macro</div>
         </div>
       </div>
     </div>
@@ -2799,11 +2795,10 @@
     statEls.forEach(el => countObserver.observe(el));
 
     // ─── VIDEO MODAL ───
-    const PLAYLIST = 'PLnaSJPapN1XQhlqfx9hyCAjTY_A9y38XZ';
-    function openVideo(index) {
+    function openVideo(id) {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('modalIframe');
-      iframe.src = `https://www.youtube.com/embed?listType=playlist&list=${PLAYLIST}&index=${index}&autoplay=1`;
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
