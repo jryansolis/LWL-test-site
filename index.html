@@ -107,8 +107,10 @@
       pointer-events: none;
       opacity: 0;
       transition: opacity 1.4s ease;
-      -webkit-mask-image: radial-gradient(ellipse 72% 78% at 50% 50%, black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
-      mask-image: radial-gradient(ellipse 72% 78% at 50% 50%, black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
+      --mx: 50%;
+      --my: 50%;
+      -webkit-mask-image: radial-gradient(ellipse 72% 78% at var(--mx) var(--my), black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
+      mask-image: radial-gradient(ellipse 72% 78% at var(--mx) var(--my), black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
     }
 
     .x-motiff-overlay.visible {
@@ -2917,9 +2919,32 @@
     const heroLogo = document.querySelector('.hero-logo');
     const xMotiffOverlay = document.getElementById('xMotiffOverlay');
     if (heroLogo && xMotiffOverlay) {
-      heroLogo.addEventListener('mouseenter', () => xMotiffOverlay.classList.add('visible'));
+      heroLogo.addEventListener('mouseenter', () => {
+        xMotiffOverlay.style.setProperty('--mx', '50%');
+        xMotiffOverlay.style.setProperty('--my', '50%');
+        xMotiffOverlay.classList.add('visible');
+      });
       heroLogo.addEventListener('mouseleave', () => xMotiffOverlay.classList.remove('visible'));
     }
+
+    // ─── TICKET CTAs — X MOTIFF HOVER (section-centered) ───
+    const ticketCTAs = document.querySelectorAll(
+      'a[href="#tickets"]:not(nav a), .ticket-btn'
+    );
+    ticketCTAs.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        const section = btn.closest('section') || btn.closest('div[id]');
+        if (section) {
+          const r = section.getBoundingClientRect();
+          const cx = ((r.left + r.right) / 2 / window.innerWidth * 100).toFixed(1) + '%';
+          const cy = (Math.min(Math.max((r.top + r.bottom) / 2, 0), window.innerHeight) / window.innerHeight * 100).toFixed(1) + '%';
+          xMotiffOverlay.style.setProperty('--mx', cx);
+          xMotiffOverlay.style.setProperty('--my', cy);
+        }
+        xMotiffOverlay.classList.add('visible');
+      });
+      btn.addEventListener('mouseleave', () => xMotiffOverlay.classList.remove('visible'));
+    });
   </script>
 </body>
 
