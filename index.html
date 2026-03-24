@@ -106,9 +106,9 @@
       z-index: 198;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 1.2s ease;
-      -webkit-mask-image: radial-gradient(ellipse 80% 85% at 9% 4%, black 0%, rgba(0,0,0,0.5) 35%, transparent 65%);
-      mask-image: radial-gradient(ellipse 80% 85% at 9% 4%, black 0%, rgba(0,0,0,0.5) 35%, transparent 65%);
+      transition: opacity 1.4s ease;
+      -webkit-mask-image: radial-gradient(ellipse 72% 78% at 50% 50%, black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
+      mask-image: radial-gradient(ellipse 72% 78% at 50% 50%, black 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 62%, transparent 82%);
     }
 
     .x-motiff-overlay.visible {
@@ -337,6 +337,7 @@
       width: min(400px, 82vw);
       margin-bottom: 36px;
       opacity: 0;
+      cursor: pointer;
       animation: fadeUp 1s ease forwards 0.5s;
       filter: drop-shadow(0 4px 40px rgba(221, 172, 44, 0.35));
     }
@@ -2912,12 +2913,12 @@
       update(); // paint correct state if page loads mid-scroll
     })();
 
-    // ─── NAV LOGO — X MOTIFF HOVER ───
-    const navLogoLink = document.querySelector('nav a[aria-label="Livewire Markets"]');
+    // ─── HERO LOGO — X MOTIFF HOVER ───
+    const heroLogo = document.querySelector('.hero-logo');
     const xMotiffOverlay = document.getElementById('xMotiffOverlay');
-    if (navLogoLink && xMotiffOverlay) {
-      navLogoLink.addEventListener('mouseenter', () => xMotiffOverlay.classList.add('visible'));
-      navLogoLink.addEventListener('mouseleave', () => xMotiffOverlay.classList.remove('visible'));
+    if (heroLogo && xMotiffOverlay) {
+      heroLogo.addEventListener('mouseenter', () => xMotiffOverlay.classList.add('visible'));
+      heroLogo.addEventListener('mouseleave', () => xMotiffOverlay.classList.remove('visible'));
     }
   </script>
 </body>
