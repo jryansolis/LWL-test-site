@@ -585,40 +585,8 @@
       max-width: 560px;
     }
 
-    /* ─── MARQUEE ─── */
-    .marquee-strip {
-      border-top: 1px solid rgba(30, 45, 80, 0.6);
-      border-bottom: 1px solid rgba(30, 45, 80, 0.6);
-      background: rgba(0, 11, 46, 0.9);
-      padding: 14px 0;
-      overflow: hidden;
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 48px;
-      animation: marquee 30s linear infinite;
-      width: max-content;
-    }
-
-    .marquee-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      white-space: nowrap;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--white-40);
-    }
-
     .marquee-dot {
-      width: 3px;
-      height: 3px;
-      background: var(--gold-mid);
-      border-radius: 50%;
-      flex-shrink: 0;
+      display: none;
     }
 
     /* ─── ABOUT ─── */
@@ -1839,15 +1807,6 @@
       }
     }
 
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
 
     @keyframes pulse {
 
@@ -2148,27 +2107,6 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee-strip">
-    <div class="marquee-track">
-      <span class="marquee-item">15 September 2026<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Art Gallery of New South Wales, Sydney, Australia<span
-          class="marquee-dot"></span></span>
-      <span class="marquee-item">10th Edition<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Australia's #1 Investment Event<span class="marquee-dot"></span></span>
-      <span class="marquee-item">World-Class Speakers<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Live Market Insights<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Presented by Bell Financial Group<span class="marquee-dot"></span></span>
-      <span class="marquee-item">15 September 2026<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Art Gallery of New South Wales, Sydney, Australia<span
-          class="marquee-dot"></span></span>
-      <span class="marquee-item">10th Edition<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Australia's #1 Investment Event<span class="marquee-dot"></span></span>
-      <span class="marquee-item">World-Class Speakers<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Live Market Insights<span class="marquee-dot"></span></span>
-      <span class="marquee-item">Presented by Bell Financial Group<span class="marquee-dot"></span></span>
-    </div>
-  </div>
 
   <!-- ABOUT -->
   <section id="about">
