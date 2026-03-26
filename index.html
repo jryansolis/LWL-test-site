@@ -75,7 +75,7 @@
     /* ─── NAV ─── */
     nav {
       position: fixed;
-      top: 0;
+      top: calc(-1 * env(safe-area-inset-top, 0px));
       left: 0;
       right: 0;
       z-index: 200;
@@ -967,6 +967,12 @@
 
     .video-thumb:hover .video-thumb-bg img {
       filter: brightness(1);
+    }
+
+    /* Touch devices: always full brightness, play button always visible */
+    @media (hover: none) {
+      .video-thumb-bg img { filter: brightness(1); }
+      .video-thumb .play-btn { opacity: 1; }
     }
 
     .video-thumb-overlay {
@@ -3180,25 +3186,34 @@
         mouseY = rect.height / 2;
       });
 
-      // Gyroscope parallax for mobile
-      var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-      if (isTouchDevice && window.DeviceOrientationEvent) {
-        var baseGamma = null, baseBeta = null;
-        var orientHandler = function (e) {
-          if (e.gamma === null) return;
-          // Calibrate on first reading
-          if (baseGamma === null) { baseGamma = e.gamma; baseBeta = e.beta; }
-          var dx = Math.max(-30, Math.min(30, e.gamma - baseGamma));
-          var dy = Math.max(-30, Math.min(30, (e.beta - baseBeta)));
-          mouseX = rect.width  / 2 + (dx / 30) * (rect.width  / 2);
-          mouseY = rect.height / 2 + (dy / 30) * (rect.height / 2);
-        };
-        // iOS 13+ requires permission on user gesture
+      // Touch parallax: finger position drives the effect
+      section.addEventListener('touchmove', function (e) {
+        var t = e.touches[0];
+        mouseX = t.clientX - rect.left;
+        mouseY = t.clientY - rect.top;
+      }, { passive: true });
+
+      // Gyroscope parallax: tilt drives effect when not touching
+      var gyroActive = false;
+      var baseGamma = null, baseBeta = null;
+      var orientHandler = function (e) {
+        if (gyroActive || e.gamma === null) return;
+        if (baseGamma === null) { baseGamma = e.gamma; baseBeta = e.beta || 0; }
+        var dx = Math.max(-40, Math.min(40, e.gamma - baseGamma));
+        var dy = Math.max(-40, Math.min(40, (e.beta || 0) - baseBeta));
+        mouseX = rect.width  / 2 + (dx / 40) * (rect.width  / 2) * 0.8;
+        mouseY = rect.height / 2 + (dy / 40) * (rect.height / 2) * 0.8;
+      };
+      section.addEventListener('touchstart', function () { gyroActive = true; }, { passive: true });
+      section.addEventListener('touchend',   function () { gyroActive = false; }, { passive: true });
+
+      if (window.DeviceOrientationEvent) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+          // iOS 13+ — request on first user gesture anywhere on page
           document.addEventListener('touchstart', function grantGyro() {
-            DeviceOrientationEvent.requestPermission().then(function (res) {
-              if (res === 'granted') window.addEventListener('deviceorientation', orientHandler, { passive: true });
-            });
+            DeviceOrientationEvent.requestPermission()
+              .then(function (r) { if (r === 'granted') window.addEventListener('deviceorientation', orientHandler, { passive: true }); })
+              .catch(function () {});
             document.removeEventListener('touchstart', grantGyro);
           }, { once: true });
         } else {
