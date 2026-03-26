@@ -354,14 +354,36 @@
       color: var(--white-40);
     }
 
-    .hero-sponsor img {
-      height: 44px;
-      opacity: 0.82;
+    .hero-sponsor-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-sponsor-lockup-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
+    }
+
+    .hero-sponsor-lockup-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(189, 200, 219, 0.4);
+      flex-shrink: 0;
+    }
+
+    .hero-sponsor-lockup img {
+      height: 22px;
+      opacity: 0.75;
       filter: brightness(0) invert(1);
       transition: opacity 0.2s;
     }
 
-    .hero-sponsor img:hover {
+    .hero-sponsor-lockup:hover img {
       opacity: 1;
     }
 
@@ -2369,7 +2391,11 @@
       <!-- Series sponsor -->
       <div class="hero-sponsor">
         <div class="hero-sponsor-label">Series Presented by</div>
-        <img src="brand_assets/series-sponsor-bell.svg" alt="Bell Financial Group — Series Sponsor">
+        <div class="hero-sponsor-lockup">
+          <span class="hero-sponsor-lockup-label">Series Sponsor</span>
+          <span class="hero-sponsor-lockup-divider"></span>
+          <img src="brand_assets/bell.png" alt="Bell Financial Group">
+        </div>
       </div>
     </div>
 
@@ -2884,8 +2910,11 @@
             investment minds for one extraordinary day.</p>
           <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px;">
 
-            <img src="brand_assets/series-sponsor-bell.svg" alt="Bell Financial Group"
-              style="height:36px;opacity:0.45;filter:brightness(0) invert(1);">
+            <div style="display:flex;align-items:center;gap:12px;opacity:0.5;">
+              <span style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#fff;white-space:nowrap;">Series Sponsor</span>
+              <span style="width:1px;height:22px;background:rgba(189,200,219,0.5);flex-shrink:0;"></span>
+              <img src="brand_assets/bell.png" alt="Bell Financial Group" style="height:18px;filter:brightness(0) invert(1);">
+            </div>
           </div>
           <!-- Socials -->
           <div class="footer-socials">
