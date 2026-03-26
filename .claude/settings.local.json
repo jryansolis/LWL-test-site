@@ -4,7 +4,9 @@
       "WebFetch(domain:localhost)",
       "Bash(git commit:*)",
       "Bash(git remote add origin https://github.com/jryansolis/LWL-test-site.git)",
-      "Bash(git push -u origin main)"
+      "Bash(git push -u origin main)",
+      "Bash(git add index.html brand_assets/LWL-highlights-anne-milne.jpg brand_assets/LWL-highlights-bg.png brand_assets/LWL-highlights-chris-joye.jpg brand_assets/LWL-highlights-david-allen.jpg \"brand_assets/LWL-highlights-jeremy grantham.jpg\" brand_assets/LWL-highlights-panel-high-conviction.jpg brand_assets/LWL-highlights-qiao-ma.jpg brand_assets/LWL-highlights-victor-shvets.jpg)",
+      "Bash(git push origin main)"
     ]
   }
 }

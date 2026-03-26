@@ -365,7 +365,7 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255, 255, 255, 0.55);
       white-space: nowrap;
     }
 
@@ -993,8 +993,13 @@
 
     /* Touch devices: always full brightness, play button always visible */
     @media (hover: none) {
-      .video-thumb-bg img { filter: brightness(1); }
-      .video-thumb .play-btn { opacity: 1; }
+      .video-thumb-bg img {
+        filter: brightness(1);
+      }
+
+      .video-thumb .play-btn {
+        opacity: 1;
+      }
     }
 
     .video-thumb-overlay {
@@ -1028,7 +1033,9 @@
       background: var(--gold-end);
     }
 
-    .play-btn svg { display: block; }
+    .play-btn svg {
+      display: block;
+    }
 
     .video-thumb-title {
       position: absolute;
@@ -1943,9 +1950,13 @@
       pointer-events: none;
     }
 
-    #past-speakers .ps-stage { z-index: 1; }
+    #past-speakers .ps-stage {
+      z-index: 1;
+    }
 
-    #past-speakers .section-eyebrow { justify-content: center; }
+    #past-speakers .section-eyebrow {
+      justify-content: center;
+    }
 
     #past-speakers .section-inner {
       position: relative;
@@ -1957,11 +1968,16 @@
     /* Re-enable pointer events on interactive children */
     #past-speakers .section-inner a,
     #past-speakers .section-inner button,
-    #past-speakers .section-inner [tabindex] { pointer-events: auto; }
+    #past-speakers .section-inner [tabindex] {
+      pointer-events: auto;
+    }
 
 
     /* Unused elements */
-    .ps-bg, .ps-overlay { display: none; }
+    .ps-bg,
+    .ps-overlay {
+      display: none;
+    }
 
     /* Subtitle text below main heading */
     .ps-subtitle {
@@ -1998,7 +2014,10 @@
     /* Full-section floating stage — absolute behind text */
     .ps-stage {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       height: auto;
       pointer-events: none;
     }
@@ -2035,7 +2054,9 @@
       z-index: 1;
     }
 
-    .ps-item.ps-visible { opacity: 1; }
+    .ps-item.ps-visible {
+      opacity: 1;
+    }
 
     .ps-item:hover {
       translate: 0 -6px;
@@ -2048,7 +2069,9 @@
     .ps-item::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: var(--gold-gradient);
       z-index: 5;
@@ -2056,7 +2079,9 @@
       transition: transform 0.35s;
     }
 
-    .ps-item:hover::before { transform: scaleX(1); }
+    .ps-item:hover::before {
+      transform: scaleX(1);
+    }
 
     .ps-item img {
       width: 100%;
@@ -2091,7 +2116,9 @@
       box-shadow: none;
     }
 
-    .ps-item:hover .ps-item-play { opacity: 1; }
+    .ps-item:hover .ps-item-play {
+      opacity: 1;
+    }
 
     .ps-item:hover .ps-item-play .play-btn {
       background: rgba(221, 172, 44, 0.88);
@@ -2102,9 +2129,11 @@
     /* Name label — serif, fades in on hover */
     .ps-item-label {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       padding: 36px 12px 12px;
-      background: linear-gradient(to top, rgba(5,7,10,0.96) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(5, 7, 10, 0.96) 0%, transparent 100%);
       font-family: var(--font-display);
       font-size: 13px;
       font-weight: 700;
@@ -2114,29 +2143,92 @@
       transition: opacity 0.25s;
     }
 
-    .ps-item:hover .ps-item-label { opacity: 1; }
+    .ps-item:hover .ps-item-label {
+      opacity: 1;
+    }
 
     /* Semi-circle arc around the centred heading */
     /* 2025 Panel — 16:9, top centre arc peak */
-    .ps-item-3 { top: 1%;    left: 34%; scale: 0.72; z-index: 2; transition-delay: 0.20s; aspect-ratio: 16/9; width: clamp(185px, 18vw, 255px); }
+    .ps-item-3 {
+      top: 1%;
+      left: 34%;
+      scale: 0.72;
+      z-index: 2;
+      transition-delay: 0.20s;
+      aspect-ratio: 16/9;
+      width: clamp(185px, 18vw, 255px);
+    }
 
     /* Jeremy Grantham — 16:9, upper-left arc */
-    .ps-item-1 { top: 6%;    left: 4%;  scale: 1.00; z-index: 8; transition-delay: 0s;    aspect-ratio: 16/9; width: clamp(230px, 23vw, 310px); }
+    .ps-item-1 {
+      top: 6%;
+      left: 4%;
+      scale: 1.00;
+      z-index: 8;
+      transition-delay: 0s;
+      aspect-ratio: 16/9;
+      width: clamp(230px, 23vw, 310px);
+    }
+
     /* Qiao Ma — portrait, upper-right arc */
-    .ps-item-4 { top: 4%;    left: 74%; scale: 1.00; z-index: 8; transition-delay: 0.30s; aspect-ratio: 3/4;  width: clamp(155px, 16vw, 215px); }
+    .ps-item-4 {
+      top: 4%;
+      left: 74%;
+      scale: 1.00;
+      z-index: 8;
+      transition-delay: 0.30s;
+      aspect-ratio: 3/4;
+      width: clamp(155px, 16vw, 215px);
+    }
 
     /* Anne Milne — portrait, mid-left arc */
-    .ps-item-2 { top: 30%;   left: 2%;  scale: 0.88; z-index: 5; transition-delay: 0.10s; aspect-ratio: 3/4;  width: clamp(140px, 14vw, 190px); }
+    .ps-item-2 {
+      top: 30%;
+      left: 2%;
+      scale: 0.88;
+      z-index: 5;
+      transition-delay: 0.10s;
+      aspect-ratio: 3/4;
+      width: clamp(140px, 14vw, 190px);
+    }
+
     /* Victor Shvets — square, mid-right arc */
-    .ps-item-5 { top: 28%;   left: 78%; scale: 0.88; z-index: 5; transition-delay: 0.40s; aspect-ratio: 1/1;  width: clamp(175px, 17vw, 235px); }
+    .ps-item-5 {
+      top: 28%;
+      left: 78%;
+      scale: 0.88;
+      z-index: 5;
+      transition-delay: 0.40s;
+      aspect-ratio: 1/1;
+      width: clamp(175px, 17vw, 235px);
+    }
 
     /* David Allen — 16:9, on top of Jeremy upper-left */
-    .ps-item-8 { top: 16%;   left: 2%;  scale: 0.72; z-index: 9; transition-delay: 0.35s; aspect-ratio: 16/9; width: clamp(175px, 17vw, 240px); }
+    .ps-item-8 {
+      top: 16%;
+      left: 2%;
+      scale: 0.72;
+      z-index: 9;
+      transition-delay: 0.35s;
+      aspect-ratio: 16/9;
+      width: clamp(175px, 17vw, 240px);
+    }
+
     /* Chris Joye — square, above Qiao Ma */
-    .ps-item-6 { top: 8%;    left: 82%; scale: 0.72; z-index: 9; transition-delay: 0.15s; aspect-ratio: 1/1;  width: clamp(150px, 15vw, 205px); }
+    .ps-item-6 {
+      top: 8%;
+      left: 82%;
+      scale: 0.72;
+      z-index: 9;
+      transition-delay: 0.15s;
+      aspect-ratio: 1/1;
+      width: clamp(150px, 15vw, 205px);
+    }
 
     /* Qiao Ma — centre face in portrait frame */
-    .ps-item-4 img { object-position: 62% 15%; }
+    .ps-item-4 img {
+      object-position: 62% 15%;
+    }
 
     /* Video sub-section — flush within same section */
     .ps-video-block {
@@ -2156,25 +2248,82 @@
     }
 
     @media (max-width: 900px) {
-      .ps-item { width: clamp(130px, 14vw, 175px); }
-      .ps-subtitle { font-size: 14px; margin-bottom: 48px; }
-      .ps-video-block { padding-bottom: 88px; }
+      .ps-item {
+        width: clamp(130px, 14vw, 175px);
+      }
+
+      .ps-subtitle {
+        font-size: 14px;
+        margin-bottom: 48px;
+      }
+
+      .ps-video-block {
+        padding-bottom: 88px;
+      }
     }
 
     @media (max-width: 600px) {
-      #past-speakers { padding: 88px 0 0; }
-      .ps-item { pointer-events: none !important; cursor: default; }
-      #past-speakers .video-playlist-grid { grid-template-columns: 1fr; gap: 12px; }
-      .ps-item-3, .ps-item-5 { display: none; }
-      .ps-item { width: clamp(110px, 28vw, 148px); }
-      .ps-item-1 { top: 4%;    left: 1%; }
-      .ps-item-2 { top: 3%;    left: 28%; }
-      .ps-item-4 { top: 5%;    left: 57%; }
-      .ps-item-6 { bottom: 4%; left: 4%; }
-      .ps-item-7 { bottom: 3%; left: 33%; }
-      .ps-item-8 { bottom: 4%; left: 63%; }
-      .ps-subtitle { font-size: 13px; margin-bottom: 32px; }
-      .ps-video-block { padding-bottom: 72px; }
+      #past-speakers {
+        padding: 88px 0 0;
+      }
+
+      .ps-item {
+        pointer-events: none !important;
+        cursor: default;
+      }
+
+      #past-speakers .video-playlist-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .ps-item-3,
+      .ps-item-5 {
+        display: none;
+      }
+
+      .ps-item {
+        width: clamp(110px, 28vw, 148px);
+      }
+
+      .ps-item-1 {
+        top: 4%;
+        left: 1%;
+      }
+
+      .ps-item-2 {
+        top: 3%;
+        left: 28%;
+      }
+
+      .ps-item-4 {
+        top: 5%;
+        left: 57%;
+      }
+
+      .ps-item-6 {
+        bottom: 4%;
+        left: 4%;
+      }
+
+      .ps-item-7 {
+        bottom: 3%;
+        left: 33%;
+      }
+
+      .ps-item-8 {
+        bottom: 4%;
+        left: 63%;
+      }
+
+      .ps-subtitle {
+        font-size: 13px;
+        margin-bottom: 32px;
+      }
+
+      .ps-video-block {
+        padding-bottom: 72px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -2390,7 +2539,6 @@
 
       <!-- Series sponsor -->
       <div class="hero-sponsor">
-        <div class="hero-sponsor-label">Series Presented by</div>
         <div class="hero-sponsor-lockup">
           <span class="hero-sponsor-lockup-label">Series Sponsor</span>
           <span class="hero-sponsor-lockup-divider"></span>
@@ -2542,41 +2690,76 @@
     <div class="ps-stage">
       <div class="ps-float">
         <!-- Near — full size -->
-        <button class="ps-item ps-item-1" data-depth="0.5" onclick="openVideo('mSu43XNcPmg')" aria-label="Watch Jeremy Grantham">
+        <button class="ps-item ps-item-1" data-depth="0.5" onclick="openVideo('mSu43XNcPmg')"
+          aria-label="Watch Jeremy Grantham">
           <img src="brand_assets/LWL-highlights-jeremy grantham.jpg" alt="Jeremy Grantham" loading="lazy">
-          <div class="ps-item-play"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg></div></div>
+          <div class="ps-item-play">
+            <div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M8 4L19 11L8 18Z" fill="#000431" />
+              </svg></div>
+          </div>
           <div class="ps-item-label">Jeremy Grantham</div>
         </button>
-        <button class="ps-item ps-item-4" data-depth="0.8" onclick="openVideo('G6mCsgtMx7k')" aria-label="Watch Qiao Ma">
+        <button class="ps-item ps-item-4" data-depth="0.8" onclick="openVideo('G6mCsgtMx7k')"
+          aria-label="Watch Qiao Ma">
           <img src="brand_assets/LWL-highlights-qiao-ma.jpg" alt="Qiao Ma" loading="lazy">
-          <div class="ps-item-play"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg></div></div>
+          <div class="ps-item-play">
+            <div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M8 4L19 11L8 18Z" fill="#000431" />
+              </svg></div>
+          </div>
           <div class="ps-item-label">Qiao Ma</div>
         </button>
         <!-- Mid distance -->
-        <button class="ps-item ps-item-2" data-depth="1.2" onclick="openVideo('Qx9EUiieBmo')" aria-label="Watch Anne Milne">
+        <button class="ps-item ps-item-2" data-depth="1.2" onclick="openVideo('Qx9EUiieBmo')"
+          aria-label="Watch Anne Milne">
           <img src="brand_assets/LWL-highlights-anne-milne.jpg" alt="Anne Milne" loading="lazy">
-          <div class="ps-item-play"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg></div></div>
+          <div class="ps-item-play">
+            <div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M8 4L19 11L8 18Z" fill="#000431" />
+              </svg></div>
+          </div>
           <div class="ps-item-label">Anne Milne</div>
         </button>
-        <button class="ps-item ps-item-5" data-depth="1.4" onclick="openVideo('XtEqBCHmtMY')" aria-label="Watch Victor Shvets">
+        <button class="ps-item ps-item-5" data-depth="1.4" onclick="openVideo('XtEqBCHmtMY')"
+          aria-label="Watch Victor Shvets">
           <img src="brand_assets/LWL-highlights-victor-shvets.jpg" alt="Victor Shvets" loading="lazy">
-          <div class="ps-item-play"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg></div></div>
+          <div class="ps-item-play">
+            <div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M8 4L19 11L8 18Z" fill="#000431" />
+              </svg></div>
+          </div>
           <div class="ps-item-label">Victor Shvets</div>
         </button>
-        <button class="ps-item ps-item-8" data-depth="1.3" onclick="openVideo('YY_ncvzGWgI')" aria-label="Watch Dr. David Allen">
+        <button class="ps-item ps-item-8" data-depth="1.3" onclick="openVideo('YY_ncvzGWgI')"
+          aria-label="Watch Dr. David Allen">
           <img src="brand_assets/LWL-highlights-david-allen.jpg" alt="Dr. David Allen" loading="lazy">
-          <div class="ps-item-play"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg></div></div>
+          <div class="ps-item-play">
+            <div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M8 4L19 11L8 18Z" fill="#000431" />
+              </svg></div>
+          </div>
           <div class="ps-item-label">Dr. David Allen</div>
         </button>
         <!-- Far — smaller, pushed back -->
-        <button class="ps-item ps-item-3" data-depth="2" onclick="openVideo('tYPwu8x1YMM')" aria-label="Watch 2025 Panel">
+        <button class="ps-item ps-item-3" data-depth="2" onclick="openVideo('tYPwu8x1YMM')"
+          aria-label="Watch 2025 Panel">
           <img src="brand_assets/LWL-highlights-panel-high-conviction.jpg" alt="2025 Panel" loading="lazy">
-          <div class="ps-item-play"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg></div></div>
+          <div class="ps-item-play">
+            <div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M8 4L19 11L8 18Z" fill="#000431" />
+              </svg></div>
+          </div>
           <div class="ps-item-label">2025 Panel</div>
         </button>
-        <button class="ps-item ps-item-6" data-depth="2.2" onclick="openVideo('fR0A5HMFyFI')" aria-label="Watch Chris Joye">
+        <button class="ps-item ps-item-6" data-depth="2.2" onclick="openVideo('fR0A5HMFyFI')"
+          aria-label="Watch Chris Joye">
           <img src="brand_assets/LWL-highlights-chris-joye.jpg" alt="Chris Joye" loading="lazy">
-          <div class="ps-item-play"><div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg></div></div>
+          <div class="ps-item-play">
+            <div class="play-btn"><svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M8 4L19 11L8 18Z" fill="#000431" />
+              </svg></div>
+          </div>
           <div class="ps-item-label">Chris Joye</div>
         </button>
       </div>
@@ -2611,7 +2794,9 @@
             </div>
             <div class="video-thumb-overlay">
               <div class="play-btn">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path d="M8 4L19 11L8 18Z" fill="#000431" />
+                </svg>
               </div>
             </div>
           </div>
@@ -2623,7 +2808,9 @@
             </div>
             <div class="video-thumb-overlay">
               <div class="play-btn">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path d="M8 4L19 11L8 18Z" fill="#000431" />
+                </svg>
               </div>
             </div>
           </div>
@@ -2635,7 +2822,9 @@
             </div>
             <div class="video-thumb-overlay">
               <div class="play-btn">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path d="M8 4L19 11L8 18Z" fill="#000431" />
+                </svg>
               </div>
             </div>
           </div>
@@ -2647,7 +2836,9 @@
             </div>
             <div class="video-thumb-overlay">
               <div class="play-btn">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M8 4L19 11L8 18Z" fill="#000431"/></svg>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path d="M8 4L19 11L8 18Z" fill="#000431" />
+                </svg>
               </div>
             </div>
           </div>
@@ -2911,9 +3102,12 @@
           <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px;">
 
             <div style="display:flex;align-items:center;gap:12px;opacity:0.5;">
-              <span style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#fff;white-space:nowrap;">Series Sponsor</span>
+              <span
+                style="font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#fff;white-space:nowrap;">Series
+                Sponsor</span>
               <span style="width:1px;height:36px;background:rgba(189,200,219,0.5);flex-shrink:0;"></span>
-              <img src="brand_assets/bell.png" alt="Bell Financial Group" style="height:36px;filter:brightness(0) invert(1);">
+              <img src="brand_assets/bell.png" alt="Bell Financial Group"
+                style="height:36px;filter:brightness(0) invert(1);">
             </div>
           </div>
           <!-- Socials -->
@@ -3230,11 +3424,11 @@
         if (baseGamma === null) { baseGamma = e.gamma; baseBeta = e.beta || 0; }
         var dx = Math.max(-40, Math.min(40, e.gamma - baseGamma));
         var dy = Math.max(-40, Math.min(40, (e.beta || 0) - baseBeta));
-        mouseX = rect.width  / 2 + (dx / 40) * (rect.width  / 2) * 0.8;
+        mouseX = rect.width / 2 + (dx / 40) * (rect.width / 2) * 0.8;
         mouseY = rect.height / 2 + (dy / 40) * (rect.height / 2) * 0.8;
       };
       section.addEventListener('touchstart', function () { gyroActive = true; }, { passive: true });
-      section.addEventListener('touchend',   function () { gyroActive = false; }, { passive: true });
+      section.addEventListener('touchend', function () { gyroActive = false; }, { passive: true });
 
       if (window.DeviceOrientationEvent) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -3242,7 +3436,7 @@
           document.addEventListener('touchstart', function grantGyro() {
             DeviceOrientationEvent.requestPermission()
               .then(function (r) { if (r === 'granted') window.addEventListener('deviceorientation', orientHandler, { passive: true }); })
-              .catch(function () {});
+              .catch(function () { });
             document.removeEventListener('touchstart', grantGyro);
           }, { once: true });
         } else {
