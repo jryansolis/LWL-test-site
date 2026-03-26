@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Livewire Live 2026 — The Event That Moves Markets</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,7 @@
       left: 0;
       right: 0;
       z-index: 200;
-      padding: 20px 48px;
+      padding: calc(env(safe-area-inset-top, 0px) + 20px) 48px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -2135,6 +2135,8 @@
 
     @media (max-width: 600px) {
       #past-speakers { padding: 88px 0 0; }
+      .ps-item { pointer-events: none !important; cursor: default; }
+      #past-speakers .video-playlist-grid { grid-template-columns: 1fr; gap: 12px; }
       .ps-item-3, .ps-item-5 { display: none; }
       .ps-item { width: clamp(110px, 28vw, 148px); }
       .ps-item-1 { top: 4%;    left: 1%; }
@@ -3177,6 +3179,32 @@
         mouseX = rect.width / 2;
         mouseY = rect.height / 2;
       });
+
+      // Gyroscope parallax for mobile
+      var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      if (isTouchDevice && window.DeviceOrientationEvent) {
+        var baseGamma = null, baseBeta = null;
+        var orientHandler = function (e) {
+          if (e.gamma === null) return;
+          // Calibrate on first reading
+          if (baseGamma === null) { baseGamma = e.gamma; baseBeta = e.beta; }
+          var dx = Math.max(-30, Math.min(30, e.gamma - baseGamma));
+          var dy = Math.max(-30, Math.min(30, (e.beta - baseBeta)));
+          mouseX = rect.width  / 2 + (dx / 30) * (rect.width  / 2);
+          mouseY = rect.height / 2 + (dy / 30) * (rect.height / 2);
+        };
+        // iOS 13+ requires permission on user gesture
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+          document.addEventListener('touchstart', function grantGyro() {
+            DeviceOrientationEvent.requestPermission().then(function (res) {
+              if (res === 'granted') window.addEventListener('deviceorientation', orientHandler, { passive: true });
+            });
+            document.removeEventListener('touchstart', grantGyro);
+          }, { once: true });
+        } else {
+          window.addEventListener('deviceorientation', orientHandler, { passive: true });
+        }
+      }
 
       var rafId = null;
       var isVisible = false;
