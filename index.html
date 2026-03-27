@@ -133,6 +133,10 @@
     /* ─── HAMBURGER ─── */
     .nav-hamburger {
       display: none;
+      position: fixed;
+      top: calc(env(safe-area-inset-top, 0px) + 10px);
+      right: 20px;
+      z-index: 215;
       flex-direction: column;
       justify-content: center;
       gap: 5px;
@@ -142,7 +146,18 @@
       border: none;
       cursor: pointer;
       padding: 4px;
-      z-index: 210;
+    }
+
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 204;
+      background: transparent;
+    }
+
+    .nav-backdrop.open {
+      display: block;
     }
 
     .nav-hamburger span {
@@ -2561,10 +2576,12 @@
       <a href="https://www.livewiremarkets.com/" target="_blank" rel="noopener">Back to Livewire</a>
       <a href="#tickets" class="btn-nav">Get Tickets</a>
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
+
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-backdrop" id="nav-backdrop"></div>
 
   <!-- MOBILE DRAWER -->
   <div class="nav-drawer" id="nav-drawer">
@@ -3364,20 +3381,23 @@
     // ─── HAMBURGER MENU ───
     const hamburger = document.getElementById('nav-hamburger');
     const drawer = document.getElementById('nav-drawer');
+    const backdrop = document.getElementById('nav-backdrop');
+    function closeMenu() {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      backdrop.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    }
     hamburger.addEventListener('click', () => {
       const open = drawer.classList.toggle('open');
       hamburger.classList.toggle('open', open);
+      backdrop.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    drawer.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        drawer.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
-      });
-    });
+    backdrop.addEventListener('click', closeMenu);
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
     // ─── SCROLL REVEAL ───
     const revealEls = document.querySelectorAll('.reveal, .reveal-line');
