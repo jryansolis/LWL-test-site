@@ -5,9 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Livewire Live 2026 — The Event That Moves Markets</title>
+  <meta name="description" content="Livewire Live 2026 — Australia's premier investment ideas event. 15 September 2026, Art Gallery of NSW, Sydney.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Livewire Live 2026 — The Event That Moves Markets">
+  <meta property="og:description" content="Australia's premier investment ideas event. 15 September 2026, Art Gallery of NSW, Sydney.">
+  <meta property="og:image" content="brand_assets/LWL-2026_logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Livewire Live 2026 — The Event That Moves Markets">
+  <meta name="twitter:description" content="Australia's premier investment ideas event. 15 September 2026, Art Gallery of NSW, Sydney.">
   <link rel="icon" type="image/png" href="brand_assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://img.youtube.com">
+  <link rel="dns-prefetch" href="https://www.youtube.com">
+  <link rel="dns-prefetch" href="https://i.ytimg.com">
   <link
     href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap"
     rel="stylesheet">
@@ -18,7 +29,6 @@
       --gold-mid: #DDAC2C;
       --navy-deep: #05070A;
       --navy-dark: #0A0F1E;
-      --navy-mid: #0D1B3E;
       --navy-surface: #111827;
       --navy-card: #0E1628;
       --navy-border: #1A2845;
@@ -2763,7 +2773,7 @@
 
         <div class="speaker-card reveal reveal-delay-1">
           <div class="speaker-img-wrap">
-            <img src="brand_assets/img-speaker-jbl.png" alt="Speaker" class="speaker-img">
+            <img src="brand_assets/img-speaker-jbl.png" alt="Speaker" class="speaker-img" loading="lazy">
           </div>
           <div class="speaker-info">
             <div class="speaker-name">Jun Bei Liu</div>
@@ -2774,7 +2784,7 @@
 
         <div class="speaker-card reveal reveal-delay-2">
           <div class="speaker-img-wrap">
-            <img src="brand_assets/img-speaker-abl-lloyd.png" alt="Speaker" class="speaker-img">
+            <img src="brand_assets/img-speaker-abl-lloyd.png" alt="Speaker" class="speaker-img" loading="lazy">
           </div>
           <div class="speaker-info">
             <div class="speaker-name">Andrew Lloyd</div>
@@ -2785,7 +2795,7 @@
 
         <div class="speaker-card reveal reveal-delay-3">
           <div class="speaker-img-wrap">
-            <img src="brand_assets/img-speaker-simon.png" alt="Speaker" class="speaker-img">
+            <img src="brand_assets/img-speaker-simon.png" alt="Speaker" class="speaker-img" loading="lazy">
           </div>
           <div class="speaker-info">
             <div class="speaker-name">Simon Shields</div>
@@ -2796,7 +2806,7 @@
 
         <div class="speaker-card reveal reveal-delay-4">
           <div class="speaker-img-wrap">
-            <img src="brand_assets/img-speaker-vihari.png" alt="Speaker" class="speaker-img">
+            <img src="brand_assets/img-speaker-vihari.png" alt="Speaker" class="speaker-img" loading="lazy">
           </div>
           <div class="speaker-info">
             <div class="speaker-name">Vihari Ross</div>
@@ -3180,16 +3190,16 @@
         <div class="sponsor-col-series">
           <div class="sponsor-col-label">Series Sponsor</div>
           <div class="partner-tile"><img src="brand_assets/bell.png" alt="Bell Financial Group"
-              class="series-sponsor-logo"></div>
+              class="series-sponsor-logo" loading="lazy"></div>
         </div>
         <div class="sponsor-col-supporting">
           <div class="sponsor-col-label">Supporting Partners</div>
           <div class="partners-grid">
-            <div class="partner-tile"><img src="brand_assets/partner-sample1.svg" alt="Partner" class="partner-logo">
+            <div class="partner-tile"><img src="brand_assets/partner-sample1.svg" alt="Partner" class="partner-logo" loading="lazy">
             </div>
-            <div class="partner-tile"><img src="brand_assets/partner-sample2.svg" alt="Partner" class="partner-logo">
+            <div class="partner-tile"><img src="brand_assets/partner-sample2.svg" alt="Partner" class="partner-logo" loading="lazy">
             </div>
-            <div class="partner-tile"><img src="brand_assets/partner-sample3.svg" alt="Partner" class="partner-logo">
+            <div class="partner-tile"><img src="brand_assets/partner-sample3.svg" alt="Partner" class="partner-logo" loading="lazy">
             </div>
           </div>
         </div>
@@ -3227,7 +3237,7 @@
 
         <!-- Brand -->
         <div class="footer-brand">
-          <img src="brand_assets/LWL-2026_logo.svg" alt="Livewire Live 2026" class="footer-logo">
+          <img src="brand_assets/LWL-2026_logo.svg" alt="Livewire Live 2026" class="footer-logo" loading="lazy">
           <p>Australia's premier investment event, produced by Livewire Markets. Bringing together the country's best
             investment minds for one extraordinary day.</p>
           <div style="margin-top: 20px; display: flex; align-items: center; gap: 10px;">
@@ -3238,7 +3248,7 @@
                 Sponsor</span>
               <span style="width:1px;height:36px;background:rgba(189,200,219,0.5);flex-shrink:0;"></span>
               <img src="brand_assets/bell.png" alt="Bell Financial Group"
-                style="height:36px;filter:brightness(0) invert(1);">
+                style="height:36px;filter:brightness(0) invert(1);" loading="lazy">
             </div>
           </div>
           <!-- Socials -->
@@ -3366,8 +3376,23 @@
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
+    // ─── SMOOTH SCROLL (iOS Safari fallback) ───
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        var id = this.getAttribute('href').slice(1);
+        var target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
     // ─── COUNTDOWN ───
     const TARGET = new Date('2026-09-15T09:00:00+10:00');
+    const cdDays = document.getElementById('cd-days');
+    const cdHours = document.getElementById('cd-hours');
+    const cdMins = document.getElementById('cd-mins');
+    const cdSecs = document.getElementById('cd-secs');
     function tick() {
       const diff = TARGET - Date.now();
       if (diff <= 0) {
@@ -3379,10 +3404,10 @@
       const h = Math.floor((diff % 86400000) / 3600000);
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
-      document.getElementById('cd-days').textContent = d;
-      document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-      document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
-      document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+      cdDays.textContent = d;
+      cdHours.textContent = String(h).padStart(2, '0');
+      cdMins.textContent = String(m).padStart(2, '0');
+      cdSecs.textContent = String(s).padStart(2, '0');
     }
     tick();
     setInterval(tick, 1000);
